@@ -1,4 +1,4 @@
-@Application_Profiles
+  @Application_Profiles
 Feature: CAMARA Application Profiles API, v0.4.0 - Operations for Application Profiles
 
 # Input to be provided by the implementation to the tests
