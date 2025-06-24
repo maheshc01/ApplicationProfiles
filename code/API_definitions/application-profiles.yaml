@@ -293,6 +293,26 @@ components:
         - Gbps
         - Tbps
 
+    Compute:
+      type: object
+      properties:
+        value:
+          type: integer
+          example: 10
+          format: int32
+          minimum: 0
+          maximum: 1024
+        unit:
+          $ref: "#/components/schemas/ComputeUnitEnum"
+
+    ComputeUnitEnum:
+      type: string
+      enum:
+        - kb
+        - Mb
+        - Gb
+        - Tb
+
     PacketDelayBudget:
       description: |
         The packet delay budget is the maximum allowable one-way latency
@@ -352,6 +372,35 @@ components:
       allOf:
         - $ref: "#/components/schemas/Rate"
 
+    targetMinCPU:
+      type: integer
+      description: Number of virtual CPUs
+      example: 1
+
+    targetMinGPU:
+      description: |
+        This is the target minimun GPUs required by the application
+      format: integer
+      example: 1
+
+    targetMinMemory:
+      description: |
+        This is the target minimum memory required by the application
+      allOf:
+        - $ref: "#/components/schemas/Compute"
+
+    targetMinEphemeralStorage:
+      description: |
+        This is the target minimum ephemeral storage required by the application
+      allOf:
+        - $ref: "#/components/schemas/Compute"
+
+    targetMinPersistentStorage:
+      description: |
+        This is the target minimum persistent storage required by the application
+      allOf:
+        - $ref: "#/components/schemas/Compute"
+
     ApplicationProfile:
       type: object
       required:
@@ -363,6 +412,8 @@ components:
           format: uuid
         networkQualityThresholds:
           $ref: "#/components/schemas/NetworkQualityThresholds"
+        computeResources:
+          $ref: "#/components/schemas/ComputeResourcesThresholds"
 
     ApplicationProfileRequest:
       type: object
@@ -371,6 +422,8 @@ components:
       properties:
         networkQualityThresholds:
           $ref: "#/components/schemas/NetworkQualityThresholds"
+        computeResources:
+          $ref: "#/components/schemas/ComputeResourcesThresholds"
 
     NetworkQualityThresholds:
       type: object
@@ -385,6 +438,25 @@ components:
           $ref: "#/components/schemas/PacketErrorLossRate"
         jitter:
           $ref: "#/components/schemas/Jitter"
+
+    ComputeResourcesThresholds:
+      type: object
+      properties:
+        targetMinCPU:
+          $ref: "#/components/schemas/targetMinCPU"
+        targetMinMemory:
+          $ref: "#/components/schemas/targetMinMemory"
+        targetMinGPU:
+          $ref: "#/components/schemas/targetMinGPU"
+        targetMinGPUMemory:
+          $ref: "#/components/schemas/targetMinMemory"
+        targetMinEphemeralStorage:
+          $ref: "#/components/schemas/targetMinEphemeralStorage"
+        targetMinPersistentStorage:
+          $ref: "#/components/schemas/targetMinPersistentStorage"
+      # in furture this section could be updated to added more relavant sections
+      description: Compute resources of a Application Profile
+      additionalProperties: false
 
     ErrorInfo:
       type: object
