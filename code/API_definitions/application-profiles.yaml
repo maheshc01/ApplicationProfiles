@@ -16,6 +16,25 @@ info:
     throughput). This scope will be expanded further based on addtional
     requirements from other applicable CAMARA APIs
 
+    ## Errors
+
+    If the authentication token is not valid, a `401 UNAUTHENTICATED` error is
+    returned.
+
+    Any more general service failures will result in an error in the `5xx`range
+    with an explanation.
+
+    ### Additional CAMARA error responses
+    The list of error codes in this API specification is not exhaustive. Therefore
+    the API specification may not document some non-mandatory error statuses as
+    indicated in `CAMARA API Design Guidelines`.
+
+    Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated
+    to this API version for a complete list of error responses.
+
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error
+    response if it is explicitly documented in the API.
+
     # Authorization and authentication
 
     The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
