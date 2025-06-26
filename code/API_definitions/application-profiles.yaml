@@ -474,7 +474,6 @@ components:
           $ref: "#/components/schemas/targetMinEphemeralStorage"
         targetMinPersistentStorage:
           $ref: "#/components/schemas/targetMinPersistentStorage"
-                # future expansion possible
       description: Compute resources of a Application Profile
       minProperties: 1
 
