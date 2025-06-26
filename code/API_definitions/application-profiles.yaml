@@ -429,8 +429,8 @@ components:
         computeResources:
           $ref: "#/components/schemas/ComputeResourcesThresholds"
           oneOf:
-          - required: [networkQualityThresholds]
-          - required: [computeResources]
+            - required: [networkQualityThresholds]
+            - required: [computeResources]
           required:
             - applicationProfileId
 
@@ -474,8 +474,7 @@ components:
           $ref: "#/components/schemas/targetMinEphemeralStorage"
         targetMinPersistentStorage:
           $ref: "#/components/schemas/targetMinPersistentStorage"
-        # in future this section could be updated to add more relevant
-        # sections
+        # in future this section could be updated to add more relevant sections
       description: Compute resources of a Application Profile
       minProperties: 1
 
