@@ -420,6 +420,8 @@ components:
 
     ApplicationProfile:
       type: object
+      required:
+        - applicationProfileId
       properties:
         applicationProfileId:
           type: string
@@ -428,11 +430,9 @@ components:
           $ref: "#/components/schemas/NetworkQualityThresholds"
         computeResources:
           $ref: "#/components/schemas/ComputeResourcesThresholds"
-          oneOf:
-            - required: [networkQualityThresholds]
-            - required: [computeResources]
-          required:
-            - applicationProfileId
+      anyOf:
+        - required: [networkQualityThresholds]
+        - required: [computeResources]
 
     ApplicationProfileRequest:
       type: object
