@@ -403,9 +403,6 @@ components:
 
     ApplicationProfile:
       type: object
-      required:
-        - applicationProfileId
-        - networkQualityThresholds
       properties:
         applicationProfileId:
           type: string
@@ -414,6 +411,11 @@ components:
           $ref: "#/components/schemas/NetworkQualityThresholds"
         computeResources:
           $ref: "#/components/schemas/ComputeResourcesThresholds"
+          oneOf:
+          - required: [networkQualityThresholds]
+          - required: [computeResources]
+          required:
+            - applicationProfileId
 
     ApplicationProfileRequest:
       type: object
@@ -438,6 +440,7 @@ components:
           $ref: "#/components/schemas/PacketErrorLossRate"
         jitter:
           $ref: "#/components/schemas/Jitter"
+      minProperties: 1
 
     ComputeResourcesThresholds:
       type: object
@@ -454,9 +457,9 @@ components:
           $ref: "#/components/schemas/targetMinEphemeralStorage"
         targetMinPersistentStorage:
           $ref: "#/components/schemas/targetMinPersistentStorage"
-      # in furture this section could be updated to added more relavant sections
+        # in furture this section could be updated to added more relavant sections
       description: Compute resources of a Application Profile
-      additionalProperties: false
+      minProperties: 1
 
     ErrorInfo:
       type: object
