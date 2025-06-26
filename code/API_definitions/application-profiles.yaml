@@ -16,6 +16,25 @@ info:
     throughput). This scope will be expanded further based on addtional
     requirements from other applicable CAMARA APIs
 
+    ## Errors
+
+    If the authentication token is not valid, a `401 UNAUTHENTICATED` error is
+    returned.
+
+    Any more general service failures will result in an error in the `5xx`range
+    with an explanation.
+
+    ### Additional CAMARA error responses
+    The list of error codes in this API specification is not exhaustive. Therefore
+    the API specification may not document some non-mandatory error statuses as
+    indicated in `CAMARA API Design Guidelines`.
+
+    Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated
+    to this API version for a complete list of error responses.
+
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error
+    response if it is explicitly documented in the API.
+
     # Authorization and authentication
 
     The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
@@ -50,8 +69,7 @@ paths:
             - application-profiles:create
       tags:
         - Application Profiles
-      summary: |
-        create a profile which represents an application's networking demands.
+      summary: Create an Application Profile
       description: |
         Define network monitoring intents for optimal end user application
         experience.
@@ -91,6 +109,7 @@ paths:
             - application-profiles:update
       tags:
         - Application Profiles
+      summary: Update an Application Profile
       description: |
         Update the complete set of network quality thresholds for an
         application with the new set of thresholds to ensure good
@@ -140,6 +159,7 @@ paths:
             - application-profiles:read
       tags:
         - Application Profiles
+      summary: Get an Application Profile
       description: Read an Application Profile
       operationId: readApplicationProfile
       parameters:
@@ -174,15 +194,16 @@ paths:
     delete:
       security:
         - openId:
-            - application-profile:delete
+            - application-profiles:delete
       tags:
         - Application Profiles
-      description: delete
+      summary: Delete an Application Profile
+      description: Delete an application profile
       operationId: deleteApplicationProfile
       parameters:
         - name: applicationProfileId
           in: path
-          description: subscription Id
+          description: Identifier for the Application Profile
           required: true
           style: simple
           explode: false
@@ -191,8 +212,8 @@ paths:
             format: uuid
         - $ref: "#/components/parameters/x-correlator"
       responses:
-        "200":
-          description: application profile has been deleted
+        "204":
+          description: Application profile has been deleted successfully.
         "400":
           $ref: "#/components/responses/Generic400"
         "401":
@@ -360,7 +381,7 @@ components:
           $ref: "#/components/schemas/TargetMinDownstreamRate"
         targetMinUpstreamRate:
           $ref: "#/components/schemas/TargetMinUpstreamRate"
-        packetlossErrorRate:
+        packetLossErrorRate:
           $ref: "#/components/schemas/PacketErrorLossRate"
         jitter:
           $ref: "#/components/schemas/Jitter"
