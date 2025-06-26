@@ -6,7 +6,7 @@ Checklist for application-profiles v0.5.0-alpha.1 in Fall 25 alpha milestone
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|----|
 |  1 | API definition                               |   M   |         M         |    M    |    M   | Y    | [link](/code/API_definitions/application-profiles.yaml) |
 |  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   | Y  |  r3.2    |
-|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   | Y    |  ICM v0.4   |
+|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   | Y    |  r3.2  |
 |  4 | API versioning convention applied            |   M   |         M         |    M    |    M   | Y    |      |
 |  5 | API documentation                            |   M   |         M         |    M    |    M   | Y    | inline in YAML |
 |  6 | User stories                                 |   O   |         O         |    O    |    M   | Y    | [link](/documentation/API_documentation/application-profiles-User-Story.md) |
