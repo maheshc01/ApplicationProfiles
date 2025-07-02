@@ -300,8 +300,8 @@ components:
     RateUnitEnum:
       type: string
       enum:
-        - bps
-        - kbps
+        - Bps
+        - Kbps
         - Mbps
         - Gbps
         - Tbps
@@ -321,7 +321,7 @@ components:
     ComputeUnitEnum:
       type: string
       enum:
-        - kb
+        - Kb
         - Mb
         - Gb
         - Tb
@@ -340,7 +340,7 @@ components:
 
     PacketErrorLossRate:
       type: integer
-      description: |
+      description:
         The exponential power of the allowable error loss rate 10^(-N).
         For instance 3 would be an error loss rate of 10 to the power of -3
         (0.001)
@@ -362,7 +362,7 @@ components:
       example: 3
 
     Jitter:
-      description: |
+      description:
         The jitter requirement aims to limit the maximum variation in
         round-trip packet delay for the 99th percentile of traffic, following
         ITU Y.1540 standards. It considers only acknowledged packets in a
@@ -387,10 +387,8 @@ components:
 
     targetMinCPU:
       type: number
-      description: >
-        Number of vCPUs required for the application. Fractional values are allowed
-        (e.g., 0.5 = half a vCPU). The value represents the minimum amount of CPU
-        resources to be allocated to the application instance.
+      description:
+        Number of vCPUs required for the application. Fractional values are allowed (e.g., 0.5 = half a vCPU). The value represents the minimum amount of CPU resources to be allocated to the application instance.
       example: 0.5
 
     targetMinGPU:
