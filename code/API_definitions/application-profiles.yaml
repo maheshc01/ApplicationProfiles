@@ -398,16 +398,16 @@ components:
       example: 1
 
     gpuVendorType:
-          type: string
-          enum:
-            - GPU_PROVIDER_NVIDIA
-            - GPU_PROVIDER_AMD
-          description: GPU vendor name e.g. NVIDIA, AMD etc.
-          example: Nvidia
+      type: string
+      enum:
+        - Nvidia
+        - AMD
+      description: GPU vendor name e.g. NVIDIA, AMD etc.
+      example: Nvidia
 
     gpuModelName:
-          type: string
-          description: Model name corresponding to vendorType may include info e.g. for NVIDIA, model name could be “Tesla M60”, “Tesla V100” etc.
+      type: string
+      description: Model name corresponding to vendorType may include info e.g. for NVIDIA, model name could be “Tesla M60”, “Tesla V100” etc.
 
     targetMinMemory:
       description: |
