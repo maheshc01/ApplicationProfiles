@@ -7,14 +7,14 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   description: |
-    Application profiles allow developers to specify all relevant information about
-    their application for both network and compute resource requirements, supporting
-    CAMARA APIs and network decision making.
+    Application profiles allow developers to specify all relevant information about their application for both network and compute resource
+    requirements,supporting CAMARA APIs and network decision making.
 
-    This API enables defining, reading, and managing application requirements, including:
+    This API enables defining, reading, and managing application requirements,including:
     - Network quality thresholds (latency, jitter, loss, throughput)
     - Compute resource thresholds (CPU, GPU, memory, storage)
 
+    The information captured as part of application profiles can be used in different usecases for decision making. Please refer connectivity insights and session insights for more details as a reference to see how the information in application profiles is used for decision making.
     The scope will expand as new requirements from CAMARA APIs emerge.
 
     ## Errors
@@ -397,6 +397,18 @@ components:
       format: integer
       example: 1
 
+    gpuVendorType:
+          type: string
+          enum:
+            - GPU_PROVIDER_NVIDIA
+            - GPU_PROVIDER_AMD
+          description: GPU vendor name e.g. NVIDIA, AMD etc.
+          example: Nvidia
+
+    gpuModelName:
+          type: string
+          description: Model name corresponding to vendorType may include info e.g. for NVIDIA, model name could be “Tesla M60”, “Tesla V100” etc.
+
     targetMinMemory:
       description: |
         This is the target minimum memory required by the application
@@ -464,6 +476,10 @@ components:
           $ref: "#/components/schemas/targetMinCPU"
         targetMinMemory:
           $ref: "#/components/schemas/targetMinMemory"
+        gpuVendorType:
+          $ref: "#/components/schemas/gpuVendorType"
+        gpuModelName:
+          $ref: "#/components/schemas/gpuModelName"
         targetMinGPU:
           $ref: "#/components/schemas/targetMinGPU"
         targetMinGPUMemory:
