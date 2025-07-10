@@ -446,8 +446,9 @@ components:
 
     ApplicationProfileRequest:
       type: object
-      required:
-        - networkQualityThresholds
+      anyOf:
+        - required: [networkQualityThresholds]
+        - required: [computeResources]
       properties:
         networkQualityThresholds:
           $ref: "#/components/schemas/NetworkQualityThresholds"
