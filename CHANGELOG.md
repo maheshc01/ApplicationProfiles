@@ -37,7 +37,7 @@ The API definition(s) are based on
 
 * New `DeviceResponse` object in responses limited to one identifier.
 * Clarifications on non-documented error responses.
-* Support for compute resource requirements related to the applicaton.
+* Support for compute resource requirements related to the application.
 
 ### Changed
 
