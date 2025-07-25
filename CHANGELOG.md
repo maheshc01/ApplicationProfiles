@@ -25,7 +25,7 @@ The API definition(s) are based on
 * Commonalities v0.6.0-rc.1 (r3.2)
 * Identity and Consent Management v0.4.0-rc.1 (r3.2)
 
-*  **r1.1 release of ConnectivityInsights has the following API definitions:**
+*  **r1.1 release of ApplicationProfiles has the following API definitions:**
 
     *  **application-profiles v0.5.0-rc.1**
     [[View it on ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.1/code/API_definitions/application-profiles.yaml&nocors)
