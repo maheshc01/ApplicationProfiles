@@ -34,15 +34,21 @@ The API definition(s) are based on
     [[View it on Swagger Editor]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
     [[OpenAPI]](https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
 
-
 ### Added
-* n/a
+
+* New `DeviceResponse` object in responses limited to one identifier.
+* Clarifications on non-documented error responses.
+* Support for compute resource requirements related to the application.
 
 ### Changed
-* n/a
+
+* Updated string pattern for `x-correlator`headers.
 
 ### Removed
-* n/a
+
+* `verificationResult: UNKNOWN` for 200 responses.
+* Error `422 IDENTIFIER_MISMATCH`.
+* Error `401 AUTHENTICATION_REQUIRED`.
 
 **Full Changelog**: https://github.com/camaraproject/ApplicationProfiles/compare/r1.1...r1.2
 
