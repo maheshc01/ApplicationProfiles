@@ -20,7 +20,7 @@ Note: this API had former releases in the [ConnectivityInsights](https://github.
 # r1.2
 ## Release Notes
 
-This release contains the definition and documentation of
+This public release contains the definition and documentation of
 * application-profiles v0.5.0
 
 The API definition(s) are based on
